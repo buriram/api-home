@@ -5,16 +5,16 @@ module.exports = router
 
 router.post('/', async (req, res) => {
   // 1. check require
-  if (!req.body.email || !req.body.password) {
+  if (!req.body.login || !req.body.pass) {
     return res.send({
       ok: false,
       message: 'กรุณาตรวจสอบชื่อผู้ใช้งานและรหัสผ่าน',
     })
   }
 
-  let rows = await req.db('tb_teacher')
-    .where('t_email', '=', req.body.email || '')
-    .where('t_pass', '=', req.body.password || '')
+  let rows = await req.db('teacher')
+    .where('t_username', '=', req.body.login || '')
+    .where('t_password', '=', req.body.pass || '')
   if (rows.length === 0) {
     return res.send({
       ok: false,
