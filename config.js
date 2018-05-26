@@ -5,7 +5,7 @@ module.exports = {
     host : 'localhost',
     user : 'root',
     password : '123456',
-    database : 'smart_booking'
+    database : 'home'
   },
   socket: {
     url: 'https://socket.bpcd.xenex.io',
